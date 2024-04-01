@@ -1,0 +1,24 @@
+public class Node{
+	public Node(data){
+		this.data = data;
+	}
+	int data;
+	Node next;
+
+}
+
+public class Linkedlist{
+	Node head;
+	if(head == null){
+		head = new Node(data);
+		return;
+}
+	public void append(int data){
+	Node current = head;
+		while(current.next!=null)
+			current = current.next;
+
+	}
+	current.next = new Node(data);
+
+}

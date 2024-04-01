@@ -1,0 +1,66 @@
+Selection sort
+
+public int[] selectionSort(int[] list){
+	int minValue, minIndex, temp = 0;
+		for(int i = 0; i < list.length; i++){
+			minValue = list[i];
+			minIndex = i;
+			for(int j = i; i < list.length; j++){
+				if(minValue > list[j]){
+					minValue = list[j];
+					minIndex = j;
+			}
+		}
+			if(minValue < list[i]){
+				temp = list[i];
+				list[i] = list[minIndex];
+				list[minIndex] = temp;
+		}
+	}
+	return list;
+
+}
+
+Bubble Sort
+
+public int[] bubbleSort(int[] list){
+	int temp = 0;
+	for(int i = 0; i < list.length-1; i++){
+		for(int j = 0; j < list.length-1-i; j++){
+			if(list[j] > list[j+1]){
+				temp = list[j];
+				list[j] = list[j+1];
+				list[j+1] = temp;
+			}
+		}
+	}
+	return list;
+}
+
+Insertion Sort
+
+public int[] insertionSort(int[] list){
+	int key, temp;
+	for(int i = 1; i < list.length; i++){
+		key = list[i];
+		int j = i-1;
+		while(j > 0 && key< list[j]){
+		temp = list[j];
+		list[j] = list[j+1];
+		list[j+1] = temp;
+		j--;
+		}
+	}
+	return list;
+}
+
+public int[] mergeSort(int[] list, int lowIndex, int highIndex){
+	if(lowIndex == highIndex)
+		return;
+	else{
+		int midIndex = (lowIndex + highIndex)/2;
+		mergeSort(list, lowIndex, midIndex);
+		mergeSort(list, lowIndex+1; highIndex);
+		merge(list, lowIndex, midIndex+1, highIndex);
+	}
+}

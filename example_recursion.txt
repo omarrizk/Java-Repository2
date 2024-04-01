@@ -1,0 +1,64 @@
+public class Main {
+
+    public static void main(String[] args) {
+        tower(args.length == 1 ? Integer.parseInt(args[0]) : 0, 'A', 'C', 'B');
+    }
+
+    public static int fact(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * fact(n-1);
+    }
+
+    public static int fibo(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        return fibo(n-1) + fibo(n-2);
+    }
+
+    public static int pow(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        else if (n % 2 == 0) {
+            return pow(x*x, n/2);
+        }
+        else {
+            return x * pow(x*x, n/2);
+        }
+    }
+
+    public static void tower(int n, char src, char dst, char use) {
+        if (n > 0) {
+            tower(n-1, src, use, dst);
+            System.out.println("Move disk " + n + " from " + src + " to " + dst);
+            tower(n-1, use, dst, src);
+        }
+    }
+
+    public static boolean isPal(String s) {
+        if (s.length() <= 1) {
+            return true;
+        }
+        else if (s.charAt(0) == s.charAt(s.length()-1)) {
+            return isPal(s.substring(1, s.length()-1));
+        }
+        return false;
+    }
+
+    public static boolean isIdent(String s) {
+        if (s.length() == 1) {
+            if ('a' <= s.charAt(0) && s.charAt(0) <= 'z') {
+                return true;
+            }
+            return false;
+        }
+        else if (('a' <= s.charAt(s.length()-1) && s.charAt(s.length()-1) <= 'z') ||
+                 ('0' <= s.charAt(s.length()-1) && s.charAt(s.length()-1) <= '9')) {
+            return isIdent(s.substring(0, s.length()-1));
+        }
+        return false;
+    }
+}

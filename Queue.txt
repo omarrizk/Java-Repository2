@@ -1,0 +1,37 @@
+public class Queue{
+	private static class Node{
+		private Node(int data){
+			this.data = data;
+		}
+	private Node next;
+	private int data;
+	}
+	
+	private Node head; // remove from the head
+	private Node tail; // add from the tail
+	public boolean isEmpty()
+	{
+		return(head == null);
+	}
+	public int peek()
+	{
+		return(head.data);
+	}
+	public void enqueue(int data)
+	{
+		Node node = new Node(data);
+		if(tail != null)
+			tail.next = node;
+		tail = node;
+		if(head == null)
+		 head = node;
+	}
+	public int dequeue(){
+	int data = head.data;
+	head = data.next;
+	if(head == null)
+		tail == null;
+	return data;
+	}
+
+}
